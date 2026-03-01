@@ -6,7 +6,6 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 
 app = Flask(__name__)
-app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 
 def _f(v):
