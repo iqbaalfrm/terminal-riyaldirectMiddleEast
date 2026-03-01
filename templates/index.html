@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>RiyalDirect | Middle East P2P Terminal</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080c16'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='20' font-family='Arial' fill='%2310b981'%3eRD%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Inter"', 'sans-serif'] } } } }</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background: #080c16;
+            color: #cbd5e1;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased
+        }
+
+        header {
+            background: rgba(8, 12, 22, .95);
+            border-bottom: 1px solid #1e293b
+        }
+
+        .tn {
+            font-variant-numeric: tabular-nums
+        }
+
+        .pulse {
+            animation: pg 2s ease-in-out infinite
+        }
+
+        @keyframes pg {
+
+            0%,
+            100% {
+                opacity: .6
+            }
+
+            50% {
+                opacity: 1
+            }
+        }
+
+        .col-ex {
+            border-right: 1px solid #1a2236;
+            display: flex;
+            flex-direction: column;
+            min-width: 0
+        }
+
+        .col-ex:last-child {
+            border-right: none
+        }
+
+        .ex-name {
+            text-align: center;
+            font-weight: 800;
+            font-size: 15px;
+            letter-spacing: .08em;
+            padding: 6px 0;
+            border-bottom: 1px solid #1a2236;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background: #080c16
+        }
+
+        .pair-hdr {
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 4px 0;
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            border-top: 1px solid #1e293b
+        }
+
+        .dir-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 3px 0;
+            border-bottom: 1px solid #111827
+        }
+
+        .p-row {
+            display: flex;
+            padding: 3px 8px;
+            font-size: 15px;
+            gap: 4px
+        }
+
+        .p-row:nth-child(even) {
+            background: rgba(148, 163, 184, .03)
+        }
+
+        .p-row .nm {
+            color: #64748b;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 2;
+            min-width: 0
+        }
+
+        .p-row .pr {
+            font-weight: 700;
+            white-space: nowrap;
+            flex: 1;
+            text-align: right
+        }
+
+        .p-row .vl {
+            color: #475569;
+            white-space: nowrap;
+            flex: 1;
+            text-align: right;
+            font-size: 13px
+        }
+
+        .buy-best {
+            color: #10b981
+        }
+
+        .sell-best {
+            color: #f59e0b
+        }
+
+        .empty {
+            color: #1e293b;
+            text-align: center;
+            padding: 3px;
+            font-style: italic;
+            font-size: 10px
+        }
+
+        .col-hdr {
+            display: flex;
+            padding: 1px 8px;
+            font-size: 10px;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            border-bottom: 1px solid #111827;
+            gap: 4px
+        }
+
+        .col-hdr span:nth-child(1) {
+            flex: 2
+        }
+
+        .col-hdr span:nth-child(2) {
+            flex: 1;
+            text-align: right
+        }
+
+        .col-hdr span:nth-child(3) {
+            flex: 1;
+            text-align: right
+        }
+
+        ::-webkit-scrollbar {
+            width: 3px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0d1221
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px
+        }
+
+        /* Desktop: per-column scroll */
+        @media(min-width:1024px) {
+            .col-ex {
+                overflow-y: auto
+            }
+        }
+
+        /* Mobile */
+        @media(max-width:767px) {
+            .col-ex {
+                border-right: none;
+                border-bottom: 2px solid #1e293b
+            }
+
+            .col-ex:last-child {
+                border-bottom: none
+            }
+
+            .ex-name {
+                font-size: 16px;
+                padding: 8px 0
+            }
+
+            .p-row {
+                font-size: 16px;
+                padding: 5px 12px
+            }
+
+            .p-row .vl {
+                font-size: 14px
+            }
+
+            .pair-hdr {
+                font-size: 14px;
+                padding: 5px 0
+            }
+
+            .dir-label {
+                font-size: 12px;
+                padding: 4px 0
+            }
+        }
+    </style>
+</head>
+
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="h-9 flex items-center justify-between px-3 shrink-0">
+        <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse"></span>
+            <span class="font-extrabold tracking-widest text-emerald-500 text-xs">RIYALDIRECT</span>
+            <span class="text-white/20 text-[9px] uppercase tracking-widest ml-1 hidden sm:inline">Middle East
+                P2P</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="font-mono text-[11px] text-white/35 tn" id="clock">--:--</span>
+            <span class="text-[9px] text-white/15 tn hidden sm:inline" id="latency"></span>
+            <button onclick="syncData()"
+                class="bg-emerald-500/10 text-emerald-500 px-2 py-0.5 border border-emerald-500/25 text-[9px] uppercase tracking-widest active:scale-95">SYNC</button>
+        </div>
+    </header>
+
+    <!-- Mobile: full page scroll. Desktop: 4-col grid, per-column scroll -->
+    <main class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 overflow-y-auto lg:overflow-hidden" id="grid">
+    </main>
+
+    <script>
+        const EX = [
+            { name: 'Binance', color: '#F0B90B', hasAED: true },
+            { name: 'OKX', color: '#AAAAAA', hasAED: false },
+            { name: 'KuCoin', color: '#23AF91', hasAED: true },
+            { name: 'Bybit', color: '#F7A600', hasAED: true }
+        ];
+
+        function mkRows(data, bestCls) {
+            if (!data || !data.length) return '<div class="empty">—</div>';
+            let h = '<div class="col-hdr"><span>Seller</span><span>Rate</span><span>Avail</span></div>';
+            h += data.map((x, i) => `<div class="p-row"><span class="nm">${x.name}</span><span class="pr tn ${i === 0 ? bestCls : ''}">${x.price.toFixed(2)}</span><span class="vl tn">${x.vol || '—'}</span></div>`).join('');
+            return h;
+        }
+
+        function renderAll(exData) {
+            const g = document.getElementById('grid');
+            let h = '';
+            for (const ex of EX) {
+                const d = exData[ex.name] || {};
+                h += `<div class="col-ex">
+            <div class="ex-name" style="color:${ex.color};background:${ex.color}06">${ex.name}</div>`;
+                h += `<div class="pair-hdr" style="color:#10b981">USDT/SAR</div>`;
+                h += `<div class="dir-label" style="color:#10b981;background:#10b98108">BUY ▲</div>`;
+                h += mkRows(d.sar_buy, 'buy-best');
+                h += `<div class="dir-label" style="color:#f59e0b;background:#f59e0b08;border-top:1px solid #1a2236">SELL ▼</div>`;
+                h += mkRows(d.sar_sell, 'sell-best');
+                if (ex.hasAED) {
+                    h += `<div class="pair-hdr" style="color:#f59e0b">USDT/AED</div>`;
+                    h += `<div class="dir-label" style="color:#10b981;background:#10b98108">BUY ▲</div>`;
+                    h += mkRows(d.aed_buy, 'buy-best');
+                    h += `<div class="dir-label" style="color:#f59e0b;background:#f59e0b08;border-top:1px solid #1a2236">SELL ▼</div>`;
+                    h += mkRows(d.aed_sell, 'sell-best');
+                }
+                h += `</div>`;
+            }
+            g.innerHTML = h;
+        }
+
+        function updateClock() { const n = new Date(); document.getElementById('clock').textContent = `${String(n.getHours()).padStart(2, '0')}:${String(n.getMinutes()).padStart(2, '0')}:${String(n.getSeconds()).padStart(2, '0')} AST` }
+        setInterval(updateClock, 1000); updateClock();
+
+        async function syncData() {
+            const t0 = performance.now();
+            try {
+                const r = await fetch('/api/data'); const d = await r.json();
+                const el = document.getElementById('latency'); if (el) el.textContent = Math.round(performance.now() - t0) + 'ms';
+                document.getElementById('clock').textContent = d.time + ' AST';
+                renderAll(d.exchanges || {});
+            } catch (e) { console.error(e) }
+        }
+        setInterval(syncData, 60000); syncData();
+    </script>
+</body>
+
+</html>
